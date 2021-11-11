@@ -1,0 +1,75 @@
+/* Feuille de styles pour la mise en forme des fichiers PDF générés
+à l'aide de Pandoc et wkHtmlToPdf 
+NB/ Les balises md !> et ?> ne sont pas reconnues par le parseur md de Pandoc
+et ne peuvent donc pas être stylées.
+*/
+
+body {
+   font-family : 'calibri';
+   font-size:16pt;
+   color: #4d4d4d;
+   /*background-color: #eeffee;*/
+   margin: 0;
+   padding: 0;
+}
+
+h1 { 
+   color : darkblue;
+}
+
+h2 {
+   color : blue;
+}
+
+h3 {
+   color : steelblue;
+}
+
+table {
+   display:table;
+   border-collapse:collapse;
+   border: 1pt solid steelblue;
+}
+
+th {
+   background-color:#eeeeee;
+}
+
+td, th {
+   border: 1pt solid steelblue;
+   padding: 10pt;
+}
+
+code, pre.sourceCode {
+   font-family: consolas;
+   font-size: 12pt;
+}
+
+p code {
+   background-color: lightyellow;
+   padding: 5pt;
+}
+
+pre.sourceCode {
+   background-color:#f1f1f1;
+   padding: 10pt 16pt;
+}
+
+blockquote {
+   background-color:#eeeeff;
+   border-left: 3pt solid blue;
+   padding: 12pt;
+   margin-right: 0pt;
+}
+
+figcaption {
+   display: none;
+   /* text-align: center;
+   font-style:italic;
+   font-size: 11pt; */
+}
+
+img {
+   display: block;
+   margin:auto;
+}

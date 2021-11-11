@@ -1,0 +1,118 @@
+/*
+===============================================================================================================================
+Put your custom CSS in this file.
+===============================================================================================================================
+*/
+
+/* CSS to better visually match Docsify pages within Canvas LMS (uncomment to use) */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body .markdown-section {
+    font-family: "Lato","Helvetica Neue",Arial,sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+.markdown-section a:link, .markdown-section a:visited, .markdown-section a:active {
+    text-decoration: none;
+}
+
+.markdown-section a:hover {
+    text-decoration: underline;
+}
+*/
+
+:root {
+
+   --base-font-family: "Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+
+   --base-line-height: 1.4;
+   --base-font-size: 1.1rem;
+
+   --cover-max-width: 45em;
+
+   --heading-h1-border-width: 0 0 1px 0;
+   --heading-h2-border-style: none;
+
+   --heading-h1-padding: 0 0 0.5rem 0;
+   --heading-h2-padding: 0 0 0.3rem 0;
+
+   --heading-h1-color: darkblue;
+   --heading-h2-color: blue;
+   --heading-h3-color: steelblue;
+
+   --heading-h1-font-size: 1.60rem;
+   --heading-h2-font-size: 1.40rem;
+   --heading-h3-font-size: 1.20rem;
+   --heading-h4-font-size: 1.15rem;
+   --heading-h5-font-size: 1.1rem;
+   --heading-h6-font-size: 1rem;
+
+   --heading-h1-font-weight: 600;
+   --heading-h2-font-weight: 500;
+   --heading-h3-font-weight: 400;
+   --heading-h4-font-weight: 400;
+   --heading-h5-font-weight: 400;
+   --heading-h6-font-weight: 400;
+
+   --navbar-root-margin: 0 0 0 .8em;
+
+   --sidebar-width : 20rem;
+
+   --link-color: #0B87DA;
+   --link-text-decoration: underline;
+   --link-text-decoration--hover: underline;
+
+   /* Link colour to match visual styling of Canvas LMS */
+   /* --link-color: #008EE2; */
+
+   --pagination-title-color: #0B87DA;
+
+   --cover-button-background: var(--cover-button-primary-background);
+   --cover-button-color: var(--cover-button-primary-color);
+   --cover-button-text-decoration-color: var(--cover-button-primary-color);
+
+   /* Styles de tableaux personnalisés*/
+
+   --table-body-border-color: steelblue;
+   --table-body-border-width: 1px;
+   --table-cell-border-color: steelblue;
+   --table-cell-border-width: 1px;
+   --table-cell-padding: 0.5em;
+    --table-head-background: var(--mono-tint3);
+    --table-head-border-color: steelblue;
+    --table-head-border-width: 1px;
+    --table-head-font-weight: var(--strong-font-weight);
+    --table-row-even-background: ;
+    --table-row-odd-background: ;
+
+    /* Styles de code personnalisés */
+    --code-font-family : Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    --code-font-size : calc(var(--font-size-m) * 0.90);
+    --code-font-weight : normal;
+    --code-tab-size : 3;
+
+    --code-block-border-radius : var(--border-radius-m);
+    --code-block-line-height : var(--base-line-height);
+    --code-block-margin : 1em 0;
+    --code-block-padding : 1.5em;
+
+    --code-inline-background : lightyellow;
+    --code-inline-border-radius : var(--border-radius-s);
+    --code-inline-color : black;
+    --code-inline-margin : 0 em;
+    --code-inline-padding : 0.2em 0.4em;
+ }
+
+ /* Centrage horizontal des tableaux et images */
+.markdown-section table {
+   display:table;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.markdown-section img {
+   display:block;
+   margin: auto;
+}

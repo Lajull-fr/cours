@@ -1,0 +1,13 @@
+variables:
+  margin-left: 18
+  margin-right: 18
+  margin-top: 18
+  margin-bottom: 25
+  footer-html: file:///D:\GitRepos\cours\docs\pdf-footer.html
+
+metadata:
+  author:
+    - Cyril Seguenot
+
+css:
+  - ..\assets\css\pdf.css

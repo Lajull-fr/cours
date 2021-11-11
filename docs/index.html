@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Développeur Pro</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Docsify Open Course Starter Kit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="assets/favicon/favicon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" title="Simple">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Alternate Stylesheets -->
+    <link rel="stylesheet alternate" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css" title="Defaults">
+    <link rel="stylesheet alternate" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" title="Simple Dark">
+
+    <!-- Font Awesome Stylesheets -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/fontawesome.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/brands.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/regular.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/solid.css" /> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <!-- \\ Markdown-it
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@12.2.0/index.min.js"></script>
+    \\ Markdown-It-Attrs
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-attrs@4.1.0/index.min.js"></script>    -->
+
+    <script>
+      // Enter the URL of your own GitHub Repository in between the two quotes below
+      var gitLinkRepoURL = 'https://github.com/developpeur-pro/cours';
+
+      // Customize the text for your Edit this Page on GitHub link between the two quotes below
+      var editThisPageLinkText = 'Editer cette page';
+
+      // Get value from GET-parameter in URL
+      // @param {string} name Parameter-name
+      // @returns {string|null} Parameter-value
+      function getURLParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+      // Return given parameter if given key in URL
+      // @param {string} name Parameter-name
+      // @param {*} isTrue Return if found
+      // @param {*} isFalse Return if not found
+      // @returns {*} Given parameter
+      function returnByURLParameterByName(name, isTrue, isFalse, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return isFalse;
+        if (!results[2]) return isFalse;
+        return isTrue;
+        }
+
+        // Docsify
+        window.$docsify = {
+            // GENERAL SETTINGS
+            // -----------------------------------------------------------------
+            name              : 'Développeur Pro',
+            homepage          : 'home.md',
+            onlyCover         : true,
+            loadSidebar       : true,
+            autoHeader        : true,
+            loadNavbar        : !(getURLParameterByName('embedded') === 'true'),
+            externalLinkTarget: (returnByURLParameterByName('embedded','_top','_blank')),
+
+            // SIDEBAR NAVIGATION
+            // -----------------------------------------------------------------
+            auto2top   : true,
+            maxLevel   : 3,
+            subMaxLevel: 2,
+            hideSidebar: getURLParameterByName('embedded') === 'true',
+
+            // PLUGIN SETTINGS
+            // -----------------------------------------------------------------
+            pagination: {
+              previousText    : 'Précédent',
+              nextText        : 'Suivant',
+              crossChapter    : true,
+              crossChapterText: true,
+            },
+
+            autoHeaders: {
+            separator: 'decimal',
+            levels: {
+              start:  '2',
+              finish: '4'
+            },
+            scope: '#main',
+            debug: false 
+            },
+
+            themeable: {
+               responsiveTables: false
+            },
+            
+          // CUSTOM PLUGINS
+          // -----------------------------------------------------------------
+          plugins: [
+            function (hook, vm) {
+               // Après chaque chargement de toutes les données
+               hook.doneEach(function() {
+                  // Récupère le N° de l'étape indiqué entre crochets dans le titre actif de la barre latérale
+                  let step = document.querySelector("div.sidebar-nav li.active").textContent.replace( /(^.*\[|\].*$)/g, '' );
+                  step = parseInt(step, 10);
+                  if (isNaN(step)) return;
+                  
+                  console.log(`etape ${step}`);
+                  // NB/ Si le N° était indiqué en paramètre d'url, on pourrait le récupérer comme ceci :
+                  //let step = getURLParameterByName("step");
+
+                  // Masque tous les elts à partir du titre dont l'id commence par "etape-{step}"
+                  // NB/ Les titres des étapes doivent donc commencer par "Etape X"
+                  let elt = document.querySelector(`[id|="etape-${step+1}"]`);
+                  //console.log(elt);
+                  while (elt) {
+                     elt.style.display = 'none';
+                     elt = elt.nextElementSibling;
+                  }
+              });
+            }
+          ]
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+    <!-- Customizable Theme-->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+    <!-- Emoji Plugin -->
+    <!-- <script src="https://unpkg.com/docsify/lib/plugins/emoji.min.js"></script> -->
+
+    <!-- Font Awesome Plugin -->
+    <!-- <script src="https://unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script> -->
+
+    <!-- Tabs Plugin-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script> -->
+
+    <!-- Run External Scripts Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/external-script.min.js"></script>
+
+    <!-- Pagination Plugin  (j'ai mis en commentaire le chargement tardif, car il ne fonctionne pas) -->
+    <!-- <script>
+      if (!(getURLParameterByName('embedded') === 'true')) {
+        // Load pagination script asynchronously
+        var sNew = document.createElement("script");
+        sNew.async = true;
+        sNew.src = "https://unpkg.com/docsify-pagination/dist/docsify-pagination.min.js";
+        var s0 = document.getElementsByTagName('script')[0];
+        s0.parentNode.insertBefore(sNew, s0);
+      }
+    </script> -->
+    <script src="https://unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+    <!-- Titres numérotés -->
+    <script src="https://cdn.jsdelivr.net/npm/@markbattistella/docsify-autoheaders@latest"></script>
+    
+    <!-- Coloration syntaxique C# -->
+    <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+    
+    <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+
+</body>
+</html>
