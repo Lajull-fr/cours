@@ -118,8 +118,12 @@
             function (hook, vm) {
                // Après chaque chargement de toutes les données
                hook.doneEach(function() {
-                  // Récupère le N° de l'étape indiqué entre crochets dans le titre actif de la barre latérale
-                  let step = document.querySelector("div.sidebar-nav li.active").textContent.replace( /(^.*\[|\].*$)/g, '' );
+                  // Récupère le menu actif de la barre latérale
+                  const menu = document.querySelector("div.sidebar-nav li.active");
+                  if (menu == null) return;
+
+                  // Récupère le N° de l'étape indiqué entre crochets
+                  let step = menu.textContent.replace( /(^.*\[|\].*$)/g, '' );
                   step = parseInt(step, 10);
                   if (isNaN(step)) return;
                   
@@ -175,7 +179,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@markbattistella/docsify-autoheaders@latest"></script>
     
     <!-- Coloration syntaxique C# -->
-    <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+    <script src="https://unpkg.com/prismjs/components/prism-csharp.min.js"></script>
+    <!-- <script src="https://unpkg.com/prismjs/components/prism-markup-templating.min.js"></script> -->
     
     <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 

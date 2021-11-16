@@ -1,13 +1,4 @@
-
-<!-- <div style="display:flex; flex-wrap:wrap; justify-content:left; align-items:flex-start;">
-	<a href="#/csharp/home" style="flex;border:1px solid purple; margin:1rem">
-      <img src="assets/images/csharp_350.png"/>
-   </a>
-	<a href="#/wpf/home" style="flex;border:1px solid darkblue; margin:1rem">
-      <img src="assets/images/wpf_350.png"/>
-   </a>
-</div> -->
-
+<!--
 <style>
    .conteneur {
       display:flex;
@@ -36,3 +27,30 @@
       <div><a href="#/wpf-exos/home">Exercices</a></div>
    </div>
 </div>
+-->
+
+<style>
+   div {
+      font-size: 1.7rem;
+   }
+</style>
+
+<div style="display:flex; flex-wrap:wrap; 
+justify-content: center; align-items:center;">
+
+![DockPanel](assets/images/csharp_350.png ':size=50%')
+
+[Cours](csharp/home)<br>
+[Exercices](csharp-exos/home)
+
+</div>
+
+<div style="display:flex; flex-wrap:wrap; 
+justify-content: center; align-items:center;">
+
+![DockPanel](assets/images/wpf_350.png ':size=50%')
+
+[Cours](wpf/home)<br>
+[Exercices](wpf-exos/home)
+
+</div> 

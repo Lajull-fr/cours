@@ -82,52 +82,59 @@ public static string NomMois(int mois)
 Cette méthode renvoie le nom d’un mois à partir de son numéro. Si le
 nombre passé en paramètre est négatif par exemple, on ne peut pas
 renvoyer un nom de mois. Dans ce cas, on lève une exception de type
-ArgumentOutOfRangeException (type fourni par le .net framework, et bien
-adapté à ce cas).
+`ArgumentOutOfRangeException` (type fourni par le .net framework, et bien adapté à ce cas).
 
 ## 5.2 Intercepter une exception
 
 On s’intéresse maintenant à la façon dont une méthode peut gérer une
 exception levée par une autre méthode.
 
-Par exemple, comment le code qui appelle la méthode NomMois ci-dessus
+Par exemple, comment le code qui appelle la méthode `NomMois` ci-dessus
 peut-il gérer l’exception `ArgumentOutOfRangeException` lorsqu’elle
 survient ?
 
 ### 5.2.1 Blocs try…catch
 
 Pour gérer proprement les exceptions, C# propose l’instruction
-`try…catch`, qui permet une bonne séparation entre le code de gestion
-d’erreur et le code qui implémente la logique applicative.
+`try…catch`, qui sépare bien le code de gestion
+d’erreur du code qui implémente la logique applicative.
 
 Voici sa syntaxe :
 ```csharp
 try
 {
    // code susceptible de produire une erreur
+   ...
 }
-catch (Exception e)
+catch (Exception ex)
 {
    // code de gestion de l'erreur
+   Console.WriteLine(e.Message);
+   ...
 }
 // suite du code
+...
 ```
 
-A l’intérieur du bloc `try`, si une instruction provoque une erreur,
-l’instruction suivante n’est pas jouée, et c’est le bloc `catch` qui est
-exécuté. Après le bloc catch, la suite du code est exécutée.
+Si le bloc `try` contient plusieurs lignes de code, dès que l'une d'elles provoque une erreur, les suivantes ne sont pas exécutées, et c’est le bloc `catch` qui est exécuté à la place.  
+Après le bloc catch, la suite du code s'exécute normalement.
 
-Si aucune erreur n’est rencontrée, toutes les instructions du bloc try
-sont exécutées, et le bloc catch n’est pas exécuté.
+Si aucune ligne du bloc `try` ne provoque une erreur, le bloc `catch` n’est pas exécuté.
 
-L’argument `e` de l’instruction catch est un objet de type `Exception`
-ou dérivé, tels que `IndexOutOfRangeException`, `FormatException`,
-`SystemException`, etc…
+L’argument `ex` de l’instruction `catch` est un objet de type `Exception` ou dérivé, tel que `IndexOutOfRangeException`, `FormatException`, `SystemException`, etc…  
+Il fournit des informations sur l'erreur qui s'est produite, notamment via ses propriétés `ex.Data` et `ex.Message`. On peut les utiliser par exemple pour afficher un message d'erreur précis à l'utilisateur.  
+Ainsi, lorsqu'on lève une exception comme ceci par exemple :
+
+```csharp
+throw new ArgumentOutOfRangeException("Ce n'est pas un numéro de mois");
+```
+...le bloc catch qui l'intercepte peut récupérer le message entre guillemets dans la propriété `ex.Message`.
+
+### 5.2.2 Gestionnaires d'erreurs spécialisés
 
 En écrivant `catch (Exception e)`, on indique qu'on veut gérer tous les
 types d'exceptions. Si on veut gérer une ou plusieurs exceptions
-particulières, on utilisera plutôt des types dérivés d’Exception dans un
-ou plusieurs blocs catch :
+particulières, on utilisera plutôt des types dérivés d’Exception dans un ou plusieurs blocs `catch` :
 
 ```csharp
 try
@@ -145,18 +152,24 @@ catch (FormatException e2)
 
 //instruction suivante
 ```
+Si plusieurs gestionnaires d’exceptions (i.e. plusieurs blocs catchs)
+sont aptes à intercepter une erreur, c’est le premier de la liste qui
+est exécuté. C'est pourquoi :
 
-### 5.2.2 Propagation des exceptions
+!> L’ordre des gestionnaires d’exceptions est important.  
+Il faut les ordonner **du plus spécialisé au plus général**.
+
+### 5.2.3 Propagation des exceptions
 
 Si aucun des blocs catch fournis ne permet de gérer l’exception, la
-méthode qui contient le code se termine immédiatement, et rend la main à
+méthode qui contient le code se termine immédiatement et rend la main à
 sa méthode appelante.  
 Si cette dernière possède un bloc catch permettant
-de gérer l’exception, elle le fait, sinon, la méthode se termine et
+de gérer l’exception, elle le fait, sinon la méthode se termine et
 rend la main à sa méthode appelante, et ainsi de suite...  
 C’est ce qu’on appelle la **propagation des exceptions**.
 
-Finalement, si l’erreur est remontée jusqu’au plus haut niveau, sans
+Finalement, si l’erreur est remontée jusqu’au plus haut niveau sans
 être interceptée par un bloc catch, l’application plante.  
 L’erreur est dite **non gérée**.
 
@@ -190,18 +203,11 @@ public static void Methode3()
 }
 ```
 
-Dans cet exemple, une exception est levée dans Methode3. Comme elle
-n’est pas interceptée par Methode2 (qui ne contient pas de try catch),
-elle remonte à Methode1. Mais elle n’est pas non plus interceptée par
-cette méthode, elle remonte donc jusqu’à Main, qui elle, l’intercepte.
-Si Main n’interceptait pas l’erreur, l’application planterait.
-
-?> L’ordre des gestionnaires d’exceptions est important
-
-Si plusieurs gestionnaires d’exceptions (i.e. plusieurs blocs catchs)
-sont aptes à intercepter une erreur, c’est le premier de la liste qui
-est exécuté. C’est pourquoi l’ordre des gestionnaires est important ; il
-faut les ordonner **du plus spécialisé au plus général**.
+Dans cet exemple, une exception est levée dans `Methode3`. Comme elle
+n’est pas interceptée par `Methode2` (qui ne contient pas de try catch),
+elle remonte à `Methode1`. Mais elle n’est pas non plus interceptée par
+cette méthode, elle remonte donc jusqu’à `Main`, qui elle, l’intercepte.
+Si `Main` n’interceptait pas l’erreur, l’application planterait.
 
 !> Ne pas masquer les erreurs !
 
@@ -218,9 +224,9 @@ mais dans ce cas, il faut au minimum loguer l’erreur dans un fichier journal.
 ### 5.3.1 Le bloc Finally
 
 Un bloc `finally` permet de garantir que le code qu’il contient sera
-exécuté, même si une erreur survient dans le bloc try associé, pour peu
+exécuté, même si une erreur survient dans le bloc `try` associé, pour peu
 que l’erreur ne fasse pas planter l’application.  
-Cela permet par exemple de libérer des ressources allouées dans le bloc try.
+Cela permet par exemple de libérer des ressources allouées dans le bloc `try`.
 
 Exemple :
 ```csharp
@@ -268,7 +274,7 @@ class Program
       Console.ReadKey(true);
    }
 
-   static void EcritFichier()
+   static void EcritFichier()s
    {
       StreamWriter outputFile = null;
       try

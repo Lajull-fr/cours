@@ -1,6 +1,7 @@
 # 2. La plateforme .Net
 
 ## 2.1 Le framework .Net
+![.Net Framework](images/dotnet-framework.png)
 
 Le framework .Net, créé par Microsoft, contient :
 

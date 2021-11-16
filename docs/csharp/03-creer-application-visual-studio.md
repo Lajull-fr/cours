@@ -23,7 +23,6 @@ Les propriétés d’un projet permettent de définir entre autres:
 Un projet peut faire référence à :
 
 -  Des assemblies externes
-
 -  D’autres projets de la même solution
 
 Le code source du projet peut alors utiliser les objets décrits dans ces
@@ -49,11 +48,11 @@ Exemple de fichier targets :
 </Project>
 ```
 
-On utilise ici la variable $(SolutionDir) pour désigner le chemin du
+On utilise ici la variable `$(SolutionDir)` pour désigner le chemin du
 répertoire de la solution, ce qui est plus souple que de définir un
 chemin en dur si on est amené à déplacer la solution.
 
-$(Configuration) peut prendre la valeur « debug » ou « release ». On
+`$(Configuration)` peut prendre la valeur « debug » ou « release ». On
 peut ainsi selon le mode d’exécution de l’application, référencer des
 assemblies compilées en mode debug ou release.
 
@@ -109,17 +108,15 @@ Exemple de fichier csproj :
 On voit entre autres :
 
 -  La référence au fichier targets
-
 -  Les références aux assemblies Microsoft (System, Sytem.Core…)
-
 -  Une référence à un autre projet de la solution (Tools.csproj)
 
 ## 3.3 Compilation, exécution, débogage
 
 ### 3.3.1 Compilation
 
-La compilation d’un projet consiste à générer le fichier binaire
-(assembly) dll ou exe.
+La compilation d’un projet consiste à générer un fichier binaire
+appelé **assembly**, à l'extension .dll ou .exe.
 
 La compilation peut se faire dans différents modes : debug, release ou
 autre mode personnalisé.
@@ -139,10 +136,10 @@ néanmoins pas fonctionner sans les assemblies qu’il référence.
 
 L’exécution en mode debug lance l’exe du projet maître, et arrête
 l’exécution au premier point d’arrêt rencontré, s’il y en a un. Le mode
-debug permet d’exécuter le code pas à pas et d’examiner en détail les
+debug permet d’exécuter le code pas à pas et d’examiner en détails les
 valeurs des variables.
 
-L’exécution en mode release lance l’exe, et ne redonne pas la main au
+L’exécution en mode release lance l’exe et ne redonne pas la main au
 développeur ; elle ne s’arrête pas aux points d’arrêt. L’application
 peut être lancée soit depuis Visual Studio, soit en double-cliquant sur
 le fichier exe situé dans le répertoire de génération de l’appli.
