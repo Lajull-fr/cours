@@ -21,7 +21,7 @@
 </div>
 
 <div class="conteneur">
-   <img src="assets/images/wpf_350.png" style="flex; width:20%; margin:0"/>
+   <img src="assets/images/WPF_350.png" style="flex; width:20%; margin:0"/>
    <div style="flex; padding-left:3rem"> 
       <div><a href="#/wpf/home">Cours</a></div>
       <div><a href="#/wpf-exos/home">Exercices</a></div>
