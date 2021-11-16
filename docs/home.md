@@ -38,7 +38,7 @@
 <div style="display:flex; flex-wrap:wrap; 
 justify-content: center; align-items:center;">
 
-![DockPanel](assets/images/csharp_350.png ':size=50%')
+![Csharp](assets/images/csharp_350.png ':size=50%')
 
 [Cours](csharp/home)<br>
 [Exercices](csharp-exos/home)
@@ -48,7 +48,7 @@ justify-content: center; align-items:center;">
 <div style="display:flex; flex-wrap:wrap; 
 justify-content: center; align-items:center;">
 
-![DockPanel](assets/images/wpf_350.png ':size=50%')
+![WPF](assets/images/WPF_350.png ':size=50%')
 
 [Cours](wpf/home)<br>
 [Exercices](wpf-exos/home)
