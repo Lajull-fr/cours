@@ -58,7 +58,6 @@ avoir à écrire plusieurs fois le même code.
 Parcourir le 1er tableau, et pour chaque pays :
 
 -  Demander à l'utilisateur la capitale
-
 -  S'il répond bien, afficher "Bravo !", sinon, afficher "Mauvaise
    réponse. La réponse était…"
 
@@ -120,4 +119,4 @@ Indication : pour générer un nombre aléatoire compris entre 0 et X, utiliser
 ```csharp
 Random rd = new Random();  
 Rd.Next(X)
-``` -->
+```
