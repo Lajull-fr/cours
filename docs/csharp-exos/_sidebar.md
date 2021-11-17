@@ -8,7 +8,7 @@
 <!--- - [Ecriture d’une note](csharp-exos/ecriture-note) -->
 <!--- - [Jeu du pendu](csharp-exos/jeu-pendu) -->
 <!--- - [Signes du zodiaque](csharp-exos/signes-zodiaque) -->
-<!--- - [Mois et saisons](csharp-exos/mois-saisons) -->
+- [Mois et saisons](csharp-exos/mois-saisons)
 <!--- - [Statuts](csharp-exos/statuts) -->
 <!--- - [Distributeur de boissons](csharp-exos/distributeur-boissons) -->
 <!--- - [Boîtes](csharp-exos/boites) -->
