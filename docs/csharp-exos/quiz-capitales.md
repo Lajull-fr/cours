@@ -1,4 +1,4 @@
-# Qui capitales
+# Quiz capitales
 
 **Objectifs** :
 - Apprendre la syntaxe de base du C#.
