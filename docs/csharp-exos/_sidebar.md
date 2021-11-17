@@ -3,7 +3,7 @@
 - [Quiz capitales [10]](csharp-exos/quiz-capitales)
 <!--- - [Calcul du PGCD](csharp-exos/calcul-pgcd) -->
 <!--- - [Tri d’un tableau](csharp-exos/tri-tableau) -->
-<!--- - [Analyse d’un mot](csharp-exos/analyse-mot) -->
+- [Analyse d’un mot](csharp-exos/analyse-mot)
 <!--- - [Création d’un compte](csharp-exos/creation-compte) -->
 <!--- - [Ecriture d’une note](csharp-exos/ecriture-note) -->
 <!--- - [Jeu du pendu](csharp-exos/jeu-pendu) -->
