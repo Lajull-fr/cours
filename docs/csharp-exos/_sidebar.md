@@ -1,6 +1,6 @@
 **Exercices C#**
 
-- [Quiz capitales [9]](csharp-exos/quiz-capitales)
+- [Quiz capitales [10]](csharp-exos/quiz-capitales)
 <!--- - [Calcul du PGCD](csharp-exos/calcul-pgcd) -->
 <!--- - [Tri d’un tableau](csharp-exos/tri-tableau) -->
 <!--- - [Analyse d’un mot](csharp-exos/analyse-mot) -->
