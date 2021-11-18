@@ -5,13 +5,13 @@
 <!--- - [Tri d’un tableau](csharp-exos/tri-tableau) -->
 - [Analyse d’un mot](csharp-exos/analyse-mot)
 <!--- - [Création d’un compte](csharp-exos/creation-compte) -->
-<!--- - [Ecriture d’une note](csharp-exos/ecriture-note) -->
-- [Jeu du pendu [2]](csharp-exos/jeu-pendu)
+- [Jeu du pendu [5]](csharp-exos/jeu-pendu)
 <!--- - [Signes du zodiaque](csharp-exos/signes-zodiaque) -->
 - [Mois et saisons](csharp-exos/mois-saisons)
+- [Ecriture d’une note [9]](csharp-exos/ecriture-note)
 <!--- - [Statuts](csharp-exos/statuts) -->
-<!--- - [Distributeur de boissons](csharp-exos/distributeur-boissons) -->
-<!--- - [Boîtes](csharp-exos/boites) -->
+- [Distributeur de boissons](csharp-exos/distributeur-boissons)
+- [Boîtes [4]](csharp-exos/boites)
 <!--- - [Boîtes et articles](csharp-exos/boites-articles) -->
 <!--- - [Véhicules](csharp-exos/vehicules) -->
 <!--- - [Chauffage programmable](csharp-exos/chauffage-programmable) -->
