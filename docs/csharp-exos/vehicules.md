@@ -3,99 +3,81 @@
 **Objectifs** : mettre en pratique les notions suivantes : héritage,
 appels des constructeurs, classes abstraites, implémentation d’interface
 
-### Etape 1
+### Etape 1 : constructeur
 Créer un type énuméré nommé `Energies` avec les valeurs :
-Aucune, Essence, Gazole, GPL, Electrique
+Aucune, Essence, Diesel, GPL, Electrique
 
-Créer une classe `Véhicule` avec 3 propriétés en lecture : `Nom`, `NbRoues` et `Energie`
+Créer une classe `Véhicule` avec 3 propriétés en lecture : `Nom`, `Energie` et `PRK` (Prix de revient kilométrique).
 
 Ajouter un constructeur pour initialiser ces propriétés.
 
 ### Etape 2
 Créer une classe dérivée `Voiture`
 
-Générer le constructeur proposé par VS, qui appelle celui de Véhicule
-
-Mettre la valeur 4 pour le paramètre du nombre de roues.
+Générer le constructeur proposé par Visual Studio, qui appelle celui de Véhicule
 
 Tester en instanciant une voiture et en exécutant le code pas à pas en debug.
 
 Noter qu’on n’a pas eu besoin de propriétés en écriture.
 
-### Etape 3
+### Etape 3 : redéfinition
 Dans la classe Véhicule, ajouter une propriété virtuelle
-`Description` qui renvoie une chaîne « Véhicule X roule sur X roues et à
-l’énergie X » (remplacer X par les valeurs de propriétés).
+`Description` qui renvoie une chaîne "Véhicule [Nom] [Energie]"
+(remplacer [Nom] et [Energie] par les valeurs de propriétés correspondantes).
 
-Dans Voiture, redéfinir cette propriété. Par défaut VS génère
-automatiquement le corps en ajoutant un appel à la propriété de la
-classe ancêtre. Ajouter « Je suis une voiture \\r\\n » devant l’appel.
+Dans Voiture, redéfinir cette propriété pour qu'elle affiche "Voiture [nom] [energie]"
 
-Dans Main, ajouter l’affichage de la description de la voiture et
-exécuter.
+Dans Main, tester en affichant la description de la voiture.
 
 ### Etape 4
-Créer une classe `Moto` dérivée de `Véhicule` et redéfinir la
-propriété `Description`
+Créer une classe `Moto` dérivée de `Véhicule` avec un constructeur qui appelle celui de Véhicule.  
+Redéfinir la propriété `Description` pour qu'elle affiche "Moto [nom] [energie]".  
+Tester dans Main.
 
-Dans la fonction Main, créer une instance de Voiture et une instance de
-Moto en les référençant par des variables de type Véhicule. Afficher la
-valeur de la propriété Description à partir de ces 2 variables.
+### Etape 5 : polymorphisme
+Dans la fonction Main, créer un tableau de 2 véhicules contenant une voiture et une moto.  
+Parcourir le tableau et afficher la description de chaque véhicule.
 
-On obtient un comportement polymorphique
-
-### Etape 5
-Rendre la classe Véhicule abstraite et ajouter une méthode
-abstraite `void CalculerConso`
-
-Noter que Visual Studio souligne Voiture et Moto en rouge pour signaler que la
-méthode CalculerConso n’est pas implémentée.
-
-Cliquer sur le nom puis sur l’ampoule qui apparaît dans la marge pour
-implémenter cette méthode dans chaque classe. On se contentera de lever
-une exception car implémenter cette méthode avec du code plus réaliste
-nécessiterait un scénario d’exercice beaucoup plus poussé.
-
-Dans Main, essayer d’instancier Véhicule. VS souligne la ligne en rouge
-car cette classe est abstraite.
+On obtient un comportement polymorphique.
 
 ### Etape 6
-Sur Véhicule, ajouter une propriété `PRK` (Prix de revient
-kilométrique) abstraite en lecture seule
+Ajouter une propriété `NbPortes` en lecture / écriture dans la classe Voiture.
 
-Fournir une implémentation dans les classes dérivées (renvoyer
-simplement des valeurs de PRK arbitraires).
+Dans Main, affecter cette propriété sur la voiture déjà créée précédemment.  
+Puis dans le parcours du tableau de véhicules, afficher le nombre de portes si le véhicules est une voiture.
 
-### Etape 7
-Faire dériver Véhicule de `IComparable`. Dans l’ampoule VS
-propose d’implémenter l’interface de différentes façons. Choisir
-l’implémentation explicite.
+### Etape 7 : classe et méthode abstraites
+Rendre la classe Véhicule abstraite et ajouter une méthode abstraite `GetPrixRevente`
+destinée à calculer le prix de revente d'un véhicule en fonction de son année de mise en circulation 
+et de son kilométrage (passés en paramètre à la méthode).
 
-Dans la méthode `CompareTo` ajouter le code suivant :
+Dans les classes Voiture et Moto, notez que Visual Studio souligne le nom de la classe en rouge pour signaler que la
+méthode abstraite n’est pas implémentée.  
+Dans chaque classe, cliquer sur l’ampoule qui apparaît dans la marge pour implémenter automatiquement cette méthode.  
+Puis modifier l'implémentation selon les règles de calcul suivantes :
 
-```csharp
-return PRK.CompareTo(((Vehicule)obj).PRK);
-```
+- Pour les voitures : prix de revente = prix d'achat * 100 000 / (kilométrage * ancienneté)  
+- Pour les motos : prix de revente = prix d'achat * 70 000 / (kilométrage * ancienneté) 
 
-En effet, le type Double implémente `IComparable`, donc autant s’en servir.
+Dans Main, tester ces méthodes pour une voiture et une moto.
+
+### Etape 8 : interfaces
+Faire dériver Véhicule de `IComparable` et cliquer sur l’ampoule pour
+implémenter l’interface de façon explicite.
+
+Dans la méthode `CompareTo`, faire en sorte de comparer les véhicules selon leur PRK.
+
+?> Indice : le type double implémente déjà lui-même IComparable.
 
 Dans Main, afficher le résultat de la comparaison des deux véhicules
-(voiture et moto) créés précédemment. On voit que pour appeler la
-méthode `CompareTo`, il faut utiliser des variables de type `IComparable` et
-non `Vehicule`.
+(voiture et moto) créés plus haut à l'aide de variables de type `IComparable`.
 
 Jouer avec les valeurs des PRK pour tester les 3 cas possibles.
 
-### Etape 8
-En repartant des variables de type `IComparable`, utiliser
-`is` sur l’une d’elles avant de la transtyper en Véhicule, puis afficher
-sa propriété Description.
-
-```csharp
-if (zoé is Véhicule) Console.WriteLine(((Véhicule)zoé).Description);
-```
-
 ### Etape 9
+Afficher la description d'un des 2 véhicules après avoir transtypé de façon sécurisée la variable de type `IComparable`.
+
+### Etape 10
 Dans la classe Program, créer une fonction `Décrire`,
 prenant en paramètre un objet, et affichant :
 
