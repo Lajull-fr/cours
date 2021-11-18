@@ -10,7 +10,7 @@
 - [Mois et saisons](csharp-exos/mois-saisons)
 - [Ecriture d’une note [9]](csharp-exos/ecriture-note)
 <!--- - [Statuts](csharp-exos/statuts) -->
-<!--- - [Distributeur de boissons](csharp-exos/distributeur-boissons) -->
+- [Distributeur de boissons](csharp-exos/distributeur-boissons)
 - [Boîtes [4]](csharp-exos/boites)
 <!--- - [Boîtes et articles](csharp-exos/boites-articles) -->
 <!--- - [Véhicules](csharp-exos/vehicules) -->
