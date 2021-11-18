@@ -5,10 +5,10 @@
 <!--- - [Tri d’un tableau](csharp-exos/tri-tableau) -->
 - [Analyse d’un mot](csharp-exos/analyse-mot)
 <!--- - [Création d’un compte](csharp-exos/creation-compte) -->
-<!--- - [Ecriture d’une note](csharp-exos/ecriture-note) -->
 - [Jeu du pendu [3]](csharp-exos/jeu-pendu)
 <!--- - [Signes du zodiaque](csharp-exos/signes-zodiaque) -->
 - [Mois et saisons](csharp-exos/mois-saisons)
+- [Ecriture d’une note [7]](csharp-exos/ecriture-note)
 <!--- - [Statuts](csharp-exos/statuts) -->
 <!--- - [Distributeur de boissons](csharp-exos/distributeur-boissons) -->
 <!--- - [Boîtes](csharp-exos/boites) -->
