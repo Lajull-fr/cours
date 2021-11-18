@@ -5,7 +5,7 @@
 <!--- - [Tri d’un tableau](csharp-exos/tri-tableau) -->
 - [Analyse d’un mot](csharp-exos/analyse-mot)
 <!--- - [Création d’un compte](csharp-exos/creation-compte) -->
-- [Jeu du pendu [3]](csharp-exos/jeu-pendu)
+- [Jeu du pendu [5]](csharp-exos/jeu-pendu)
 <!--- - [Signes du zodiaque](csharp-exos/signes-zodiaque) -->
 - [Mois et saisons](csharp-exos/mois-saisons)
 - [Ecriture d’une note [9]](csharp-exos/ecriture-note)
