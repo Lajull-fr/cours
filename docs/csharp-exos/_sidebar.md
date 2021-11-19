@@ -11,7 +11,7 @@
 - [Ecriture d’une note [9]](csharp-exos/ecriture-note)
 <!--- - [Statuts](csharp-exos/statuts) -->
 - [Distributeur de boissons](csharp-exos/distributeur-boissons)
-- [Boîtes [7]](csharp-exos/boites)
+- [Boîtes [8]](csharp-exos/boites)
 <!--- - [Boîtes et articles](csharp-exos/boites-articles) -->
 <!--- - [Véhicules](csharp-exos/vehicules) -->
 <!--- - [Chauffage programmable](csharp-exos/chauffage-programmable) -->
