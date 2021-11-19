@@ -14,7 +14,7 @@
 - [Boîtes](csharp-exos/boites)
 <!--- - [Boîtes et articles](csharp-exos/boites-articles) -->
 - [Véhicules [4]](csharp-exos/vehicules)
-<!--- - [Chauffage programmable](csharp-exos/chauffage-programmable) -->
+- [Chauffage programmable](csharp-exos/chauffage-programmable)
 <!--- - [Relevés météo](csharp-exos/releves-meteo) -->
 <!--- - [Texte formaté](csharp-exos/texte-formate) -->
 <!--- - [Listes de véhicules](csharp-exos/listes-vehicules) -->
